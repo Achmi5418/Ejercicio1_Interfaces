@@ -19,3 +19,6 @@ Recomendado que se escriban los comandos en minúsculas, pero no es obligatorio 
 ---
 
 En caso de escribir un comando inválido o inexistente, el programa mostrará un mensaje de error y te volverá a solicitar un comando.
+
+### Implementación
+Se necesita usar la versión 27 del OpenJDK (u otro JDK compatible) para ejecutar el programa.
