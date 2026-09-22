@@ -2,11 +2,13 @@ public class Tarea {
     private final String titulo;
     private final String descripcion;
     private boolean completado;
+    private final String prioridad; // Añadimos prioridad y lo inicializamos en todo el codigo
 
-    public Tarea(String titulo, String descripcion, boolean completado) {
+    public Tarea(String titulo, String descripcion, boolean completado, String prioridad) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.completado = completado;
+        this.prioridad = prioridad;
     }
 
     public String obtenerTitulo() {
@@ -15,6 +17,10 @@ public class Tarea {
 
     public String obtenerDescripcion() {
         return descripcion;
+    }
+
+    public String obtenerPrioridad() {
+        return prioridad;
     }
 
     public boolean estaCompletado() {
@@ -27,15 +33,15 @@ public class Tarea {
 
     @Override
     public String toString() {
-        String icono;
-        String mensaje;
-        if (completado) {
-            icono = "☑";
-            mensaje = "Hecho";
-        } else {
-            icono = "☐";
-            mensaje = "Por hacer";
-        }
-        return String.format("╭ Nombre: %s\n│ ╭ Descripción: %s\n╰ ╰ %s Estado: %s", titulo, descripcion, icono, mensaje);
+        String icono = completado ? "☑" : "☐";
+        String mensaje = completado ? "Hecho" : "Por hacer";
+
+        return String.format(
+                "╭ Nombre: %s\n" +
+                        "│ Descripción: %s\n" +
+                        "│ Prioridad: %s\n" +
+                        "╰ %s Estado: %s",
+                titulo, descripcion, prioridad, icono, mensaje
+        );
     }
 }
